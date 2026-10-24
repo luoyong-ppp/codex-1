@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f3f5f1" />
+    <meta
+      name="description"
+      content="一款轻量、无需安装的双人五子棋小游戏。"
+    />
+    <title>五子棋 · Gomoku</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script type="module" src="./app.js"></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="hero">
+        <div class="brand-mark" aria-hidden="true">
+          <span class="brand-stones"></span>
+        </div>
+        <div>
+          <h1>五子棋</h1>
+          <p>落子成局，看看谁先连成五子。</p>
+        </div>
+      </header>
+
+      <section class="game-layout" aria-label="五子棋对局">
+        <div class="board-card">
+          <div class="board-toolbar">
+            <div class="turn-indicator">
+              <span id="turn-stone" class="turn-stone black" aria-hidden="true"></span>
+              <div>
+                <p class="eyebrow">对局状态</p>
+                <p id="game-status" class="game-status" role="status" aria-live="polite">
+                  黑棋先手，请落子。
+                </p>
+              </div>
+            </div>
+            <p id="move-count" class="move-count">等待开局</p>
+          </div>
+
+          <div class="board-frame">
+            <div
+              id="board"
+              class="board"
+              role="group"
+              aria-label="15 乘 15 五子棋棋盘"
+            ></div>
+          </div>
+
+          <div class="board-caption">
+            <span>点选空位落子</span>
+            <span>15 × 15 棋盘</span>
+          </div>
+        </div>
+
+        <aside class="sidebar" aria-label="对局控制与规则">
+          <section class="panel">
+            <h2>对局双方</h2>
+            <div class="player-list">
+              <div id="black-player" class="player-row is-active">
+                <span class="stone-preview black" aria-hidden="true"></span>
+                <span>
+                  <span class="player-name">黑棋</span>
+                  <span class="player-hint">先手</span>
+                </span>
+              </div>
+              <div id="white-player" class="player-row">
+                <span class="stone-preview white" aria-hidden="true"></span>
+                <span>
+                  <span class="player-name">白棋</span>
+                  <span class="player-hint">后手</span>
+                </span>
+              </div>
+            </div>
+          </section>
+
+          <section class="panel action-panel" aria-label="对局操作">
+            <button id="undo-button" class="action-button" type="button" disabled>
+              <span class="action-icon" aria-hidden="true">↶</span>
+              悔棋一步
+            </button>
+            <button id="restart-button" class="action-button primary" type="button">
+              <span class="action-icon" aria-hidden="true">＋</span>
+              重新开始
+            </button>
+          </section>
+
+          <section class="panel rules-panel">
+            <h2>游戏规则</h2>
+            <p>
+              <strong>黑棋先行</strong>，双方轮流落子。任意一方在横、竖或斜线上连成
+              <strong>五子或更多</strong>即获胜。棋盘下满仍无人获胜时为平局。
+            </p>
+          </section>
+        </aside>
+      </section>
+
+      <footer class="page-footer">双人同屏 · 经典自由式五子棋</footer>
+    </main>
+  </body>
+</html>
